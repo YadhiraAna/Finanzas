@@ -1,0 +1,61 @@
+@import "tailwindcss";
+ :root {
+  --background: #ffffff;
+  --text: #020202;
+  --azul-brand: #00BFAE;
+  --radius: 16px;
+  --container: 1100px;
+  --font-sans: ui-sans-serif, system-ui;/*codigo que le dio copilot, tipo de letra*/
+  --shadow: 010px 30px rgba(0,0,0 .25);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco;
+  --foreground: #171717;
+ }
+ body {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;   
+}
+ .site-header{
+  position: sticky; top:0; z-index: 50;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(30deg, rgb(255, 255, 255),var(--azul-brand));
+  border-bottom: none;
+  border-top: 15px solid white; 
+  height: 100px; display: flex; align-items: center;
+  padding: 0.5rem 1.5rem;
+ }
+ .nav{
+  display: flex; /*para que sea ordenado horizontal*/
+  align-items: center;
+  justify-content: space-between;/*para el menu de la derecha*/
+  height: 100%;
+  width: 100%;
+ }
+ .brand{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-height: 80px;
+ }
+ .logo-img {
+  height: 60px;  /* mantiene proporción */
+  width: auto;
+  object-fit: contain;
+ }
+ .menu{
+  display: flex;
+  gap: 1rem;
+ }
+ .btn {
+  background: white;
+  color: var(--azul-brand);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+ }
+ .btn:hover {
+  opacity: 0.9;
+ }
