@@ -59,3 +59,132 @@
  .btn:hover {
   opacity: 0.9;
  }
+
+ /* ===== HERO ===== */
+.hero {
+  background: #f0fdfa;
+  border-radius: var(--radius);
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: center;
+  gap: 2rem;
+}
+.hero-img img {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ===== SABÍAS QUE ===== */
+.sabias {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.sabias h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+.sabias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.sabias-item {
+  background: #f9fdfc;
+  border-left: 4px solid var(--azul-brand);
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.sabias-item strong { color: var(--azul-brand); }
+
+/* ===== FUNCIONES ===== */
+.funciones {
+  background: #f8f9f9;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.funciones-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.funcion {
+  width: 280px;
+}
+.funcion img {
+  width: 100%;
+  max-width: 120px;
+  margin-bottom: 1rem;
+}
+
+/* ===== TESTIMONIOS ===== */
+.testimonios {
+  background: #f5f5f5;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.testimonios .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: var(--radius);
+  width: 280px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.card h4 { color: var(--azul-brand); }
+
+/* ===== FAQ ===== */
+.faq {
+  padding: 4rem 2rem;
+}
+.faq-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.faq-left details {
+  background: #f9fdfc;
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+.faq-left summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.faq-right img {
+  width: 100%;
+  max-width: 350px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #171717;
+  color: white;
+  padding: 3rem 2rem;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.footer-logo img {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+.footer-redes .icons span {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
