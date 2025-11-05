@@ -1,418 +1,687 @@
 
-:root {
-  --background: #ffffff;
-  --text: #020202;
-  --azul-brand: #00BFAE;
-  --radius: 16px;
-  --container: 1100px;
-  --font-sans: 'Poppins', ui-sans-serif, system-ui;
-  --shadow: 0 10px 30px rgba(0,0,0,.1);
-  --foreground: #171717;
+:root {/*cambiar colores o tamaños fácilmente sin modificar todo el CSS*/
+  --background: #ffffff;         /* Color de fondo principal del sitio */
+  --text: #020202;               /* Color principal del texto */
+  --azul-brand: #00BFAE;         /* Color corporativo / color de marca */
+  --radius: 16px;                /* Radio estándar para bordes redondeados */
+  --container: 1100px;           /* Ancho máximo del contenido centrado */
+  --font-sans: 'Poppins', ui-sans-serif, system-ui; /* Fuente principal */
+  --shadow: 0 10px 30px rgba(0,0,0,.1); /* Sombra general para elementos */
+  --foreground: #171717;         /* Color oscuro para encabezados o pie de página */
 }
 
 
-/* ===== BASE ===== */
+/* ===== BASE: estilo general del documento: fondo, color de texto, tipografía, márgenes y espaciado. */
 body {
-  background: var(--background);
-  color: var(--text);
-  font-family: var(--font-sans);
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
+  background: var(--background);/*color de fondo*/
+  color: var(--text);/*Define el color del texto.*/
+  font-family: var(--font-sans);/*Define la fuente tipográfica.*/
+  line-height: 1.6;/*interlineado*/
+  margin: 0;/*Define los márgenes externos.*/
+  padding: 0;/*Define el relleno interno.*/
 }
 
-/* ===== GENERAL TEXT ===== */
+/* ===== TEXTO GENERAL ===== */
 h1, h2, h3, h4 {
-  font-family: var(--font-sans);
-  color: var(--text);
-  font-weight: 700;
+  font-family: var(--font-sans);/*fuente*/
+  color: #e5e5e5;/*color*/
+  font-weight: 700;/*grosor*/
 }
-
+/* ===== bloque especifico ===== */
 h1 {
-  font-size: 2.5rem;
-  color: var(--azul-brand);
-  line-height: 1.2;
+   font-size: 2.5rem;        /* más grande porque es el título principal */
+  color: var(--azul-brand); /* se cambia su color a azul de marca */
+  line-height: 1.2;         /* espacio entre líneas */
 }
 
 h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #222;
+  color: #222;              /* se sobrescribe el color anterior */
 }
 
 h3 {
-  font-size: 1.3rem;
-  color: var(--azul-brand);
-  margin-bottom: 0.5rem;
+  font-size: 1.3rem;/**/
+  color: var(--azul-brand);/**/
+  margin-bottom: 0.5rem;/*separándolo ligeramente del contenido que le sigu*/
 }
 
-p {
+p {/*texto normal.*/
   color: #444;
   font-size: 1rem;
 }
 
-/* ===== UTILIDADES ===== */
+/* ===== UTILIDADES: Clases reutilizables para centrar contenido y 
+mantener espaciado uniforme entre secciones. ===== */
 .container {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 1rem;
+  max-width: var(--container);/*ancho máximo que el contenedor puede tener. en px para evitar que el contenido se extienda demasiado en pantallas grandes.*/
+  margin: 0 auto;/*centra el bloque horizontalmente en la pantalla.*/
+  padding: 0 1rem;/*Añade relleno de 1rem a la izquierda y derecha. Esto evita que el contenido toque los bordes*/
 }
 
 .section {
-  margin-top: 4rem;
+  margin-top: 4rem;/*espacio vertical grand separándolo de la sección anterior.*/
 }
 
 
-/* ===== HEADER ===== */
+/* ===== encabezado ===== */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(8px);
-  background: linear-gradient(30deg, rgb(255, 255, 255), var(--azul-brand));
-  border-top: 15px solid white;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 1.5rem;
+  position: sticky;/*  Mantiene el header fijo al hacer scroll */
+  top: 0;/*pegarse justo en el borde superior*/
+  z-index: 50;/*encabezado siempre se muestre por encim*/
+  backdrop-filter: blur(8px);/**/
+  background: linear-gradient(30deg, rgb(255, 255, 255), var(--azul-brand));/**/
+  border-top: 15px solid white;/**/
+  height: 100px;/*altura*/
+  display: flex;/*contenedor flexible*/
+  align-items: center;/*centra verticalmente*/
+  padding: 0.5rem 1.5rem;/*relleno interno*/
 }
 
+/* ===== NAVBAR ===== :posicion de elemento de navgeacion*/
 .nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  width: 100%;
+  display: flex; /* Coloca los elementos en línea */
+  align-items: center; /* Centra verticalmente items */
+  justify-content: space-between; /* Separa a los lados */
+  height: 100%; /* Ocupa todo el alto  del elemento padre*/
+  width: 100%; /* Ocupa todo el ancho */
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  max-height: 80px;
+.brand {/*LOGO*/
+  display: flex; /* Elementos en fila */
+  align-items: center; /* Centra verticalmente */
+  gap: 0.5rem; /* Espacio entre elementos */
+  max-height: 80px; /* Altura máxima */
 }
 
 .logo-img {
-  height: 60px;
-  width: auto;
-  object-fit: contain;
+  height: 60px; /* Alto del logo */
+  width: auto; /* Ancho proporcional */
+  object-fit: contain; /* Ajusta sin deformar */
 }
 
 .menu {
-  display: flex;
-  gap: 1rem;
+  display: flex; /* Ítems del menú se alinien */
+  gap: 1rem; /* Espacio entre ítems */
 }
 
 /* ===== BOTONES GENERALES ===== */
 .btn {
-  background: white;
-  color: var(--azul-brand);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
+  background: white; /* Fondo blanco */
+  color: var(--azul-brand); /* Texto azul */
+  border: none; /* Sin borde */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  border-radius: 6px; /* Bordes redondeados */
+  font-weight: 500; /* Grosor medio */
+  cursor: pointer; /* Cursor de mano */
 }
 
 .btn:hover {
-  opacity: 0.9;
+  opacity: 0.9; /* Efecto al pasar mouse */
 }
 
-/* ===== BOTÓN PRINCIPAL (MAIN) ===== */
+/* ===== BOTÓN PRINCIPAL ===== */
 .btn-main {
-  display: inline-block;
-  background: var(--azul-brand);
-  color: white;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s ease;
+  display: inline-block; /* Permite padding */
+  background: var(--azul-brand); /* Fondo azul */
+  color: white; /* Texto blanco */
+  font-weight: 600; /* Negrita */
+  padding: 0.75rem 1.5rem; /* Espaciado */
+  border-radius: 8px; /* Bordes redondeados */
+  text-decoration: none; /* Sin subrayado */
+  transition: background 0.3s ease; /* Suaviza cambio de color */
 }
 
 .btn-main:hover {
-  background: #009a8f;
+  background: #009a8f; /* Azul más claro al pasar */
 }
 
-/*
-|--------------------------------------------------------------------------
-| SECCIONES DE PÁGINA
-|--------------------------------------------------------------------------
-*/
 /* ===== HERO ===== */
 .hero {
-  background: #f0fdfa;
-  border-radius: var(--radius);
-  padding: 4rem 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  align-items: center;
-  gap: 2rem;
+  background: #f0fdfa; /* Fondo verde claro */
+  border-radius: var(--radius); /* Bordes suaves */
+  padding: 4rem 2rem; /* Espaciado interno */
+  display: grid; /* Usa grid */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Columnas adaptables */
+  align-items: center; /* Centra contenido */
+  gap: 2rem; /* Espacio entre columnas */
 }
 
 .hero-text p {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
-  color: #333;
+  margin-top: 1rem; /* Separación superior */
+  margin-bottom: 2rem; /* Inferior */
+  font-size: 1.1rem; /* Tamaño texto */
+  color: #333; /* Gris oscuro */
 }
 
 .hero-img img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 20px;
+  width: 100%; /* Ocupa todo el ancho */
+  max-width: 400px; /* Ancho máximo */
+  border-radius: 20px; /* Bordes redondeados */
 }
 
 /* ===== SABÍAS QUE ===== */
 .sabias {
-  padding: 4rem 2rem;
-  text-align: center;
+  padding: 4rem 2rem; /* Espaciado */
+  text-align: center; /* Centra texto */
 }
 
 .sabias h2 {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
+  font-size: 1.8rem; /* Tamaño título */
+  margin-bottom: 2rem; /* Separación inferior */
 }
 
 .sabias-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  display: grid; /* Crea cuadrícula */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Columnas adaptables */
+  gap: 1.5rem; /* Espacio entre celdas */
 }
 
 .sabias-item {
-  background: #f9fdfc;
-  border-left: 4px solid var(--azul-brand);
-  padding: 1.2rem;
-  border-radius: var(--radius);
-  text-align: left;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  background: #f9fdfc; /* Fondo claro */
+  border-left: 4px solid var(--azul-brand); /* Borde lateral azul */
+  padding: 1.2rem; /* Espaciado */
+  border-radius: var(--radius); /* Bordes redondeados */
+  text-align: left; /* Alinea texto a la izquierda */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra ligera */
 }
 
 .sabias-item strong {
-  color: var(--azul-brand);
+  color: var(--azul-brand); /* Negritas en azul */
 }
 
 /* ===== FUNCIONES ===== */
 .funciones {
-  background: #f8f9f9;
-  padding: 4rem 2rem;
-  text-align: center;
+  background: #f8f9f9; /* Fondo gris claro */
+  padding: 4rem 2rem; /* Espaciado */
+  text-align: center; /* Centra contenido */
 }
 
 .funciones-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
+  display: flex; /* Usa flexbox */
+  flex-wrap: wrap; /* Permite salto de línea */
+  gap: 2rem; /* Espacio entre ítems */
+  justify-content: center; /* Centra horizontalmente */
 }
 
 .funcion {
-  width: 280px;
+  width: 280px; /* Ancho fijo */
 }
 
 .funcion img {
-  width: 100%;
-  max-width: 120px;
-  margin-bottom: 1rem;
+  width: 100%; /* Ocupa todo el ancho */
+  max-width: 120px; /* Máximo 120px */
+  margin-bottom: 1rem; /* Separación inferior */
 }
 
-/* ===== TESTIMONIOS (CARRUSEL) ===== */
+/* ===== TESTIMONIOS ===== */
 .testimonios {
-  background: #f5f5f5;
-  padding: 4rem 2rem;
-  text-align: center;
+  background: #f5f5f5; /* Fondo gris claro */
+  padding: 4rem 2rem; /* Espaciado */
+  text-align: center; /* Centra contenido */
 }
 
 .cards {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  overflow: hidden;
-  position: relative;
+  display: flex; /* En fila */
+  justify-content: center; /* Centra horizontal */
+  align-items: center; /* Centra vertical */
+  gap: 2rem; /* Espacio entre tarjetas */
+  overflow: hidden; /* Oculta desbordes */
+  position: relative; /* Base para botones */
 }
 
 .card {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: var(--radius);
-  width: 280px;
-  padding: 1.2rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  transition: transform 0.5s ease;
+  background: #fff; /* Fondo blanco */
+  border: 1px solid #e0e0e0; /* Borde gris */
+  border-radius: var(--radius); /* Bordes suaves */
+  width: 280px; /* Ancho fijo */
+  padding: 1.2rem; /* Espaciado interno */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra ligera */
+  transition: transform 0.5s ease; /* Efecto al mover */
 }
 
 .card h4 {
-  color: var(--azul-brand);
+  color: var(--azul-brand); /* Título azul */
 }
 
 .carousel-btn {
-  background: var(--azul-brand);
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
+  background: var(--azul-brand); /* Fondo azul */
+  border: none; /* Sin borde */
+  color: white; /* Texto blanco */
+  font-size: 1.5rem; /* Tamaño ícono */
+  border-radius: 50%; /* Botón circular */
+  width: 40px; /* Ancho */
+  height: 40px; /* Alto */
+  cursor: pointer; /* Mano al pasar */
 }
 
 .carousel-btn:hover {
-  background: #009a8f;
+  background: #009a8f; /* Azul más claro al pasar */
 }
 
-/* ===== FAQ (PREGUNTAS FRECUENTES) ===== */
-/* ===== FAQ (PREGUNTAS FRECUENTES) ===== */
+/* ===== FAQ ===== */
 .faq {
-  padding: 4rem 2rem;
-  background-color: #ffffff;
+  padding: 4rem 2rem; /* Espaciado */
+  background-color: #ffffff; /* Fondo blanco */
 }
 
 .faq h2 {
-  text-align: center;
-  font-size: 1.9rem;
-  font-weight: 700;
-  color: #222;
-  margin-bottom: 2rem;
+  text-align: center; /* Centra título */
+  font-size: 1.9rem; /* Tamaño grande */
+  font-weight: 700; /* Negrita */
+  color: #222; /* Gris oscuro */
+  margin-bottom: 2rem; /* Separación inferior */
 }
 
 .faq-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-  max-width: var(--container);
-  margin: 0 auto;
+  display: grid; /* Usa grid */
+  grid-template-columns: 1fr 1fr; /* Dos columnas */
+  gap: 3rem; /* Espacio entre columnas */
+  align-items: center; /* Centra verticalmente */
+  max-width: var(--container); /* Ancho máximo */
+  margin: 0 auto; /* Centra horizontal */
 }
 
-/* Columna izquierda (preguntas) */
+/* Columna izquierda */
 .faq-left {
-  display: flex;
+  display: flex; /* En columna */
   flex-direction: column;
-  gap: 1rem;
+  gap: 1rem; /* Espacio entre preguntas */
 }
 
 .faq-left details {
-  background: #f9fdfc;
-  border-radius: 10px;
-  border: 1px solid #e3e3e3;
-  padding: 1rem 1.3rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  background: #f9fdfc; /* Fondo claro */
+  border-radius: 10px; /* Bordes redondeados */
+  border: 1px solid #e3e3e3; /* Borde gris claro */
+  padding: 1rem 1.3rem; /* Espaciado */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra ligera */
+  transition: all 0.3s ease; /* Suaviza cambios */
 }
 
 .faq-left details:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07); /* Más sombra al pasar */
 }
 
 /* Pregunta (summary) */
 .faq-left summary {
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--azul-brand);
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  cursor: pointer; /* Mano al pasar */
+  font-weight: 600; /* Negrita */
+  font-size: 1rem; /* Tamaño medio */
+  color: var(--azul-brand); /* Azul */
+  list-style: none; /* Sin viñeta */
+  display: flex; /* En línea */
+  justify-content: space-between; /* Título + ícono */
+  align-items: center; /* Centrado */
 }
 
 /* Quita el triángulo nativo */
 .faq-left summary::marker {
-  display: none;
+  display: none; /* Oculta triángulo */
 }
 
-/* Íconos personalizados (+ y –) */
+/* Íconos + / – */
 .faq-left summary::after {
-  content: "+";
+  content: "+"; /* Muestra + */
   font-size: 1.5rem;
   color: #666;
   transition: transform 0.3s ease;
 }
 
 .faq-left details[open] summary::after {
-  content: "–";
+  content: "–"; /* Cambia a – */
   transform: rotate(180deg);
 }
 
 .faq-left p {
-  margin-top: 0.6rem;
+  margin-top: 0.6rem;/*separacion superiror*/
   color: #333;
-  line-height: 1.5;
-  animation: fadeIn 0.3s ease;
+  line-height: 1.5; /* Altura de línea */
+  animation: fadeIn 0.3s ease; /* Aparición suave */
 }
 
-/* Columna derecha (imagen) */
+/* Columna derecha */
 .faq-right {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Centra imagen */
 }
 
 .faq-right img {
-  width: 100%;
+  width: 100%;/*100 del espacio disponible*/
+  
   max-width: 430px;
   border-radius: 16px;
   background-color: #f3f9f8;
   padding: 1rem;
 }
 
-/* Responsivo */
+/* Responsivo 
+media para aplicar solo en lass llaves
+() es condicion
+
+*/
 @media (max-width: 900px) {
-  .faq-container {
-    grid-template-columns: 1fr;
+  .faq-container {/*que antes tenía la maquetación de $2$ columnas.*/
+    grid-template-columns: 1fr; /* Una columna Cambia la 
+    cuadrícula para que ahora solo tenga una columna que ocupe todo el ancho*/
   }
 
   .faq-right img {
-    max-width: 300px;
-    margin: 0 auto;
+    max-width: 300px; /* Imagen más chica */
+    margin: 0 auto;/*Centra horizontalmente*/
   }
 }
 
-/* ===== KEYFRAMES ===== */
+/* ===== ANIMACIÓN ===== */
 @keyframes fadeIn {
   from {
-    opacity: 0;
-    transform: translateY(-5px);
+    opacity: 0; /* Invisible */
+    transform: translateY(-5px); /* Un poco arriba */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Visible */
+    transform: translateY(0); /* Posición normal */
   }
 }
 
-/* ===== FOOTER ===== */
+ /* ===== FOOTER ===== */
+ /* ===== FOOTER ===== */
+.icon-circle {
+  display: inline-flex; /* Íconos centrados */
+  align-items: center;
+  justify-content: center;
+  width: 32px; /* Tamaño círculo */
+  height: 32px;
+  color: #ffffff; /* Blanco */
+  font-size: 1rem;
+  margin-right: 0.5rem; /* Espacio lateral */
+}
+
+.icon-circle:hover {
+  background-color: #f0f0f0; /* Fondo gris claro */
+  transform: scale(1.05); /* Agranda un poco */
+  transition: all 0.2s ease; /* Suaviza efecto */
+}
+
 footer {
-  background: #171717;
-  color: white;
-  padding: 3rem 2rem;
+  background: #171717; /* Fondo oscuro */
+  color: white; /* Texto blanco */
+  padding: 3rem 2rem; /* Espaciado */
+  border-top: 2px solid white; /* Línea superior */
 }
 
 .footer-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  display: grid; /* En cuadrícula */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas adaptables */
+  gap: 2rem; /* Espacio entre columnas */
 }
 
 .footer-logo img {
-  width: 60px;
+  width: 100px; /* Tamaño logo */
+  margin-bottom: 1rem; /* Separación */
+}
+
+.footer-redes .icons {
+  display: flex; /* Íconos en línea */
+  gap: 0.5rem; /* Espacio entre ellos */
+  flex-wrap: wrap; /* Salto si no caben */
+}
+
+.footer-redes .icons a {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  color: white; /* Íconos blancos */
+}
+
+ footer p, footer h4 {
+  color: #e5e5e5 !important; /* Texto gris claro solo en footer */
+}
+
+/* ================================
+   SIGN UP PAGE (registro de usuario)
+   ================================ */
+
+.signup-container {
+  display: flex;
+  background: linear-gradient(90deg, #ffffff 50%, #d9fff5 50%);
+  min-height: calc(100vh - 120px); /* Resta el alto del header y footer */
+  padding-top: 80px; /* espacio para que no se tape con el header */
+  padding-bottom: 40px; /* espacio antes del footer */
+  box-sizing: border-box;
+}
+
+/* COLUMNA IZQUIERDA: bienvenida */
+.signup-left {
+  flex: 1;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #0c3b34;
+  text-align: center;
+  padding: 2rem;
+}
+
+.signup-left h1 {
+  font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 1rem;
 }
 
-.footer-redes .icons span {
-  margin-right: 0.5rem;
-  font-size: 1.2rem;
+.signup-logo {
+  width: 130px;
+  margin-top: 1rem;
 }
 
-.funcion img {
-  display: block;             /* Hace que se comporte como bloque */
-  margin: 0 auto 1rem auto;   /* Centra horizontalmente */
+/* COLUMNA DERECHA: formulario */
+.signup-right {
+  flex: 1;
+  background: linear-gradient(180deg, #b9f7e9 0%, #d7fff7 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* TARJETA DEL FORMULARIO */
+.signup-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  padding: 2rem 2.5rem;
   width: 100%;
-  max-width: 120px;
-  border-radius: 20px;        /* Bordes redondeados */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* (opcional) le da un efecto más moderno */
-  transition: transform 0.3s ease;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
+/* ENCABEZADO */
+.signup-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
 
+.icon-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: #00bfae20;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.icon-user {
+  width: 24px;
+  height: 24px;
+  color: #00bfae;
+}
+
+.signup-header h2 {
+  color: #00bfae;
+  margin: 0;
+}
+
+.signup-header p {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* FORMULARIO */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.signup-form label {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.signup-form input {
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  transition: border 0.2s ease;
+}
+
+.signup-form input:focus {
+  border-color: #00bfae;
+  outline: none;
+}
+
+/* TÉRMINOS */
+.terms {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.login-link {
+  color: #00bfae;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* MENSAJES */
+.error-msg {
+  color: #d32f2f;
+  background: #ffebee;
+  border-radius: 6px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.success-msg {
+  color: #00796b;
+  background: #e0f2f1;
+  border-radius: 6px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* BOTÓN PRINCIPAL */
+.btn-main {
+  background: #00bfae;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-main:hover {
+  background: #00a390;
+}
+
+/* DIVISOR “O” */
+.divider {
+  text-align: center;
+  margin: 1rem 0;
+  color: #999;
+}
+
+/* BOTÓN GOOGLE */
+.btn-google {
+  background: white;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s ease;
+}
+
+.btn-google:hover {
+  background: #f5f5f5;
+}
+
+.google-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* TEXTO DE AYUDA */
+.help-text {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 0.7rem;
+}
+
+.faq-link {
+  color: #00bfae;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.faq-link:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
+.signup-footer {
+  text-align: center;
+  padding: 1rem;
+  color: #777;
+  font-size: 0.85rem;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .signup-container {
+    flex-direction: column;
+    background: #ffffff;
+  }
+
+  .signup-left {
+    background: none;
+    padding: 1rem;
+  }
+
+  .signup-right {
+    background: none;
+  }
+
+  .signup-card {
+    max-width: 100%;
+  }
+}
 

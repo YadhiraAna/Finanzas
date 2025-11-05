@@ -1,138 +1,122 @@
+// Importa los íconos que se van a usar desde FontAwesome
+"use client";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import Link from "next/link";
+//import Router from "next/router";
+import {useRouter} from "next/navigation";
+import Header from './componentes/Header';
+
+// Componente principal de la página (Home)
 export default function Home() {
+  //const router =useRouter();
   return (
     <>
-      <header className="site-header">
-        <nav className="nav">
-          <div className="brand">
-            <img src="/pesito.png" alt="Pesito a Pesito" className="logo-img" />
-          </div>
-          <div className="menu">
-            <button className="btn">Iniciar Sesión</button>
-            <button className="btn">Registrarse</button>
-          </div>
-        </nav>
-      </header>
+      {/* HEADER - Encabezado principal del sitio */}
+      <Header showLoginButton={true} />
 
-      {/* HERO */}
-      <main className="container section hero">
-        <div className="hero-text">
+      {/* SECCIÓN HERO - Presentación principal */}
+      <main className="container section hero"> {/* Agrupa el texto e imagen principal */}
+        <div className="hero-text"> {/* Contenedor del texto destacado */}
           <h1>
             Construye grandes metas <br /> con pequeños pasos
           </h1>
           <p>
-            Administra tus gastos, ahorra más y alcanza tus metas financieras con
-            facilidad.
+            Administra tus gastos, ahorra más y alcanza tus metas financieras con facilidad.
           </p>
-          <a href="#" className="btn-main">
+          <Link href="/log-in" className="btn-main"> {/* Botón principal de llamada a la acción */}
             Comienza ahora
-          </a>
+          </Link>
         </div>
-        <div className="hero-img">
-          <img src="/imgLoading.png" alt="Finanzas" />
+
+        <div className="hero-img"> {/* Contenedor de la imagen del hero */}
+          <img src="/imgLoading.png" alt="Finanzas" /> {/* Imagen representativa del producto */}
         </div>
       </main>
 
-      {/* SABÍAS QUE */}
+      {/* SECCIÓN SABÍAS QUE - Datos curiosos o educativos */}
       <section className="sabias">
         <h2>¿SABÍAS QUE?</h2>
-        <div className="sabias-grid">
+        <div className="sabias-grid"> {/* Grid para organizar las tarjetas de datos */}
+          {/* Cada sabias-item es un bloque con una frase o estadística */}
           <div className="sabias-item">
             <p>
-              Usuarios que emplean sistemas de finanzas personales ahorran en
-              promedio <strong> 10–20% más </strong> al mes que los que no los
-              utilizan según Steven Burnett.
+              Usuarios que emplean sistemas de finanzas personales ahorran en promedio 
+              <strong> 10–20% más </strong> al mes según Steven Burnett.
             </p>
           </div>
           <div className="sabias-item">
             <p>
-              El simple hábito de anotar tus gastos diarios puede ayudarte a
-              detectar hasta <strong> 30 fugas de dinero </strong> al mes.
+              El hábito de anotar tus gastos diarios puede ayudarte a detectar hasta 
+              <strong> 30 fugas de dinero </strong> al mes.
             </p>
           </div>
           <div className="sabias-item">
             <p>
-              El estrés financiero es una de las principales causas de insomnio
-              en adultos. Organizar tus finanzas puede mejorar incluso tu salud.
+              El estrés financiero es una de las principales causas de insomnio en adultos.
             </p>
           </div>
           <div className="sabias-item">
             <p>
-              Tener metas financieras claras aumenta la probabilidad de
-              alcanzarlas <strong> hasta 10 veces más </strong> que cuando no se
-              planifican.
+              Tener metas financieras claras aumenta la probabilidad de lograrlas 
+              <strong> hasta 10 veces más </strong>.
             </p>
           </div>
         </div>
       </section>
 
-      {/* FUNCIONES */}
+      {/* SECCIÓN FUNCIONES - Presenta características del sistema */}
       <section className="funciones">
         <h2>Funciones</h2>
-        <div className="funciones-grid">
+        <div className="funciones-grid"> {/* Distribuye las funciones en columnas */}
+          
+          {/* Cada "funcion" representa una característica */}
           <div className="funcion">
             <img src="/f1.png" alt="Organiza tus finanzas" />
             <h3>Organiza tus finanzas</h3>
-            <p>
-              Registra tus ingresos y gastos diarios para tener el control de tu
-              dinero en un solo lugar.
-            </p>
+            <p>Registra tus ingresos y gastos diarios para tener el control de tu dinero.</p>
           </div>
+
           <div className="funcion">
             <img src="/f2.png" alt="Presupuestos personalizados" />
             <h3>Presupuestos personalizados</h3>
-            <p>
-              Define un límite de gasto y recibe alertas cuando estés por
-              superarlo.
-            </p>
+            <p>Define un límite de gasto y recibe alertas cuando estés por superarlo.</p>
           </div>
+
           <div className="funcion">
             <img src="/f3.png" alt="Visualización de datos financieros" />
             <h3>Visualización de datos financieros</h3>
-            <p>
-              Visualiza en gráficas cuánto gastas y en qué categoría, para
-              entender mejor tus hábitos.
-            </p>
+            <p>Visualiza gráficas para entender mejor tus hábitos de gasto.</p>
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIOS */}
+      {/* SECCIÓN TESTIMONIOS - Opiniones de usuarios */}
       <section className="testimonios">
         <h2>Lo que dicen nuestros usuarios</h2>
-        <p>
-          Historias reales de personas que mejoraron sus finanzas con Pesito a
-          Pesito
-        </p>
+        <p>Historias reales de personas que mejoraron sus finanzas con Pesito a Pesito</p>
+
+        {/* Contenedor de las tarjetas de testimonios */}
         <div className="cards">
           <div className="card">
             <h4>Alejandro Corona</h4>
             <p>⭐ 4.5</p>
-            <p>
-              {' '}
-              La interfaz es muy intuitiva y me permite llevar un control
-              detallado de mis gastos e ingresos.{' '}
-            </p>
+            <p>La interfaz es muy intuitiva y permite llevar un control detallado.</p>
           </div>
           <div className="card">
             <h4>Marisol Martínez</h4>
             <p>⭐ 4.0</p>
-            <p>
-              {' '}
-              La herramienta es útil y me ha ayudado a organizar mis finanzas e
-              integrar la sincronización bancaria.{' '}
-            </p>
+            <p>Me ayudó a organizar mis finanzas e integrar sincronización bancaria.</p>
           </div>
           <div className="card">
             <h4>Emilia Sánchez</h4>
             <p>⭐ 4.5</p>
-            <p>
-              {' '}
-              El seguimiento de gastos me ayudó a ahorrar para mis vacaciones. Es
-              muy fácil de usar.{' '}
-            </p>
+            <p>El seguimiento de gastos me ayudó a ahorrar para mis vacaciones.</p>
           </div>
         </div>
-        {/* Botones de carrusel */}
+
+        {/* Botones del carrusel de testimonios 
         <div
           style={{
             marginTop: '2rem',
@@ -143,80 +127,89 @@ export default function Home() {
         >
           <button className="carousel-btn prev">‹</button>
           <button className="carousel-btn next">›</button>
-        </div>
+        </div>*/}
       </section>
 
-      {/* FAQ */}
+      {/* SECCIÓN FAQ - Preguntas frecuentes */}
       <section className="faq">
         <h2>Preguntas frecuentes</h2>
-        <div className="faq-container">
+
+        <div className="faq-container"> {/* Contenedor general con texto e imagen */}
+          
+          {/* Columna izquierda con preguntas */}
           <div className="faq-left">
+            {/* <details> permite mostrar u ocultar contenido al hacer clic */}
             <details open>
               <summary>¿Qué puedo hacer en esta página?</summary>
-              <p>
-                Puedes registrar tus ingresos y gastos, visualizar gráficas,
-                establecer presupuestos y recibir consejos financieros.
-              </p>
+              <p>Registrar ingresos, gastos y generar reportes financieros.</p>
             </details>
             <details>
               <summary>¿Necesito pagar para usar la página?</summary>
-              <p>No, el acceso es totalmente gratuito.</p>
+              <p>No, el acceso es gratuito.</p>
             </details>
             <details>
               <summary>¿Puedo descargar mis reportes financieros?</summary>
-              <p>Sí, puedes exportar tus reportes en formato PDF o Excel.</p>
+              <p>Sí, en formato PDF o Excel.</p>
             </details>
             <details>
               <summary>¿Qué categorías de gastos puedo registrar?</summary>
-              <p>
-                Puedes registrar alimentos, transporte, ocio, salud, vivienda,
-                entre otros.
-              </p>
+              <p>Alimentos, transporte, ocio, salud, vivienda, entre otros.</p>
             </details>
             <details>
-              <summary>¿La página funciona sin conexión a internet?</summary>
-              <p>No, necesitas conexión para sincronizar tus datos.</p>
+              <summary>¿Funciona sin conexión a internet?</summary>
+              <p>No, requiere conexión para sincronizar datos.</p>
             </details>
           </div>
+
+          {/* Columna derecha con imagen */}
           <div className="faq-right">
             <img src="/FAQ.png" alt="Preguntas frecuentes" />
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* FOOTER - Pie de página */}
       <footer>
-        <div className="footer-container">
+        <div className="footer-container"> {/* Contenedor general del footer */}
+
+          {/* LOGO Y DESCRIPCIÓN */}
           <div className="footer-logo">
             <img src="/pesito.png" alt="Pesito a Pesito" className="logo-img" />
             <p>
-              Pesito a Pesito es una página web que te ayuda a tener el control
-              de tus finanzas personales.
+              Pesito a Pesito es una página web que te ayuda a tener el control de tus finanzas personales.
             </p>
             <p>@Company.com</p>
           </div>
+
+          {/* INFORMACIÓN DE CONTACTO */}
           <div className="footer-info">
             <h4>Contáctanos</h4>
-            <p>Lunes a viernes de 8:00 a 15:00 hrs.</p>
-            <p>729-526-6453</p>
+            <p>
+              <span className="icon-circle">
+                <FontAwesomeIcon icon={faClock} /> {/* Ícono de reloj */}
+              </span>
+              Lunes a viernes de 8:00 a 15:00 hrs.
+            </p>
+            <p>
+              <span className="icon-circle">
+                <FontAwesomeIcon icon={faPhone} /> {/* Ícono de teléfono */}
+              </span>
+              729-526-6453
+            </p>
           </div>
+
+          {/* REDES SOCIALES */}
           <div className="footer-redes">
             <h4>Redes Sociales</h4>
             <div className="icons">
-              <a>
-                <span>🌐</span>
-              </a>
-              <a>
-                <span>📘</span>
-              </a>
-              <a>
-                <span>🐦</span>
-              </a>
-              <a>
-                <span>📷</span>
-              </a>
+              {/* Cada icono dentro de un círculo con estilo */}
+              <a><span className="icon-circle"><FontAwesomeIcon icon={faFacebook} /></span></a>
+              <a><span className="icon-circle"><FontAwesomeIcon icon={faTwitter} /></span></a>
+              <a><span className="icon-circle"><FontAwesomeIcon icon={faInstagram} /></span></a>
+              <a><span className="icon-circle"><FontAwesomeIcon icon={faYoutube} /></span></a>
             </div>
           </div>
+
         </div>
       </footer>
     </>
