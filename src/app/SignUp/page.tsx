@@ -44,7 +44,7 @@ export default function SignUpPage() {
           setError("El correo no es válido.");
           break;
         case "auth/weak-password":
-          setError("La contraseña es muy débil.");
+          setError("La contraseña es muy debil.");
           break;
         default:
           setError("Ocurrió un error al crear la cuenta.");

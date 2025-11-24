@@ -4,7 +4,7 @@ export default function LogInPage() {
     
   return (
    <div>
-  <Header ShowLoginButton={false}  />
+  <Header showLoginButton={false}  />
   </div>
   )
 }
