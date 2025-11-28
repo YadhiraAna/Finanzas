@@ -6,7 +6,7 @@ import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free
 import Link from "next/link";
 //import Router from "next/router";
 import {useRouter} from "next/navigation";
-import Header from './componentes/Header';
+import Header from '../../componentes/Header';
 
 // Componente principal de la página (Home)
 export default function Home() {

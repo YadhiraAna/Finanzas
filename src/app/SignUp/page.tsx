@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
-import Header from "../componentes/Header";
+import Header from "../../../componentes/Header";
 import Link from "next/link";
 import { createUserWithEmailAndPassword, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-import { auth } from "../lib/firebase-client";
+//import { auth } from "../../../lib/firebase-client";
+import { auth } from "@/lib/firebase-client";
 
 export default function SignUpPage() {
   const [name, setName] = useState("");
@@ -63,7 +64,7 @@ export default function SignUpPage() {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential?.accessToken;
         const user = result.user;
-        console.log("Usuario registrado con Google:", user);
+        console.log("Usuario registrado con goo:", user);
         console.log("Token de acceso:", token);
       })
       .catch((error) => {
