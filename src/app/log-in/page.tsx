@@ -42,7 +42,7 @@ export default function LoginPage() {
   async function sessionLogin() {
     const user = auth.currentUser;
     const idToken = await user?.getIdToken(true);
-    if (!idToken) throw new Error("No se  obtener el token de sesión.");
+    if (!idToken) throw new Error("No se pudo obtener el token de sesión..");
 
     const res = await fetch("/api/sessionLogin", {
       method: "POST",
