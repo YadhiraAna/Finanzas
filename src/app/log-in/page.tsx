@@ -114,7 +114,7 @@ export default function LoginPage() {
       <main className={styles.loginPage}>
         <section className={styles.loginBox}>
           
-          <h1>Bienvenida a Pesito a Pesito Pamela</h1> 
+          <h1>Bienvenida a Pesito a Pesito</h1> 
 
           <div className={styles.card}>
             
