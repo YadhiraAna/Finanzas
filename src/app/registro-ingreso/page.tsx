@@ -1,15 +1,14 @@
-'use client';
 
-import { useState } from 'react';
+'use client'
 import { Header } from '@/componentes/User-header/UserHeader';
 import styles from './registro-ingreso.module.css';
+import { useState } from 'react';
 
 export default function RegistroIngresoPage() {
   const [formData, setFormData] = useState({
     monto: '100.00',
     tipo: 'efectivo',
-    fuente: 'otro',
-    especificar: 'Deuda',
+    fuente: 'sueldo',
     fecha: '2025-09-13',
     descripcion: 'me debia mi hermano'
   });
@@ -17,7 +16,6 @@ export default function RegistroIngresoPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Formulario enviado:', formData);
-    // Aquí puedes agregar la lógica para enviar los datos
     alert('Ingreso extra registrado exitosamente');
   };
 
@@ -35,12 +33,12 @@ export default function RegistroIngresoPage() {
       <div className={styles.mainContainer}>
         {/* Contenido Principal */}
         <main className={styles.content}>
-          <div className={styles.formContainer}>
+          <div className={styles.formCard}>
             <h1 className={styles.title}>REGISTRAR INGRESO EXTRA</h1>
 
             <form onSubmit={handleSubmit} className={styles.form}>
-              {/* Monto y Tipo en la misma fila */}
-              <div className={styles.formRow}>
+              {/* Monto y Tipo */}
+              <div className={styles.row}>
                 <div className={styles.formGroup}>
                   <label className={styles.label}>Monto:</label>
                   <input
@@ -70,25 +68,17 @@ export default function RegistroIngresoPage() {
               {/* Fuente */}
               <div className={styles.formGroup}>
                 <label className={styles.label}>Fuente:</label>
-                <input
-                  type="text"
+                <select
                   name="fuente"
                   value={formData.fuente}
                   onChange={handleChange}
-                  className={styles.input}
-                />
-              </div>
-
-              {/* Especificar */}
-              <div className={styles.formGroup}>
-                <label className={styles.label}>Especificar:</label>
-                <input
-                  type="text"
-                  name="especificar"
-                  value={formData.especificar}
-                  onChange={handleChange}
-                  className={styles.input}
-                />
+                  className={styles.select}
+                >
+                  <option value="sueldo">sueldo</option>
+                  <option value="venta">venta</option>
+                  <option value="inversion">inversion</option>
+                  <option value="otro">otro</option>
+                </select>
               </div>
 
               {/* Fecha */}
@@ -111,7 +101,7 @@ export default function RegistroIngresoPage() {
                   value={formData.descripcion}
                   onChange={handleChange}
                   className={styles.textarea}
-                  rows={4}
+                  rows={3}
                 />
               </div>
 

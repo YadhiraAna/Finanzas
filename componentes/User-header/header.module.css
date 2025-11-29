@@ -1,56 +1,46 @@
-.header {
-  background: linear-gradient(to right, #14b8a6, #0d9488);
-  padding: 0.75rem 1.5rem;
-  position: relative;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* =========================================================
+   HEADER BASE: Respeta completamente tu estilo original
+   ========================================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(30deg, rgb(255, 255, 255), var(--azul-brand));
+  border-top: 15px solid white;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
 }
 
-.headerContainer {
-  max-width: 1280px;
-  margin: 0 auto;
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
+  width: 100%;
 }
 
-/* Logo */
-.logo {
+/* LOGO */
+.brand {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
-  transition: opacity 0.2s;
+  gap: 0.5rem;
+  max-height: 80px;
 }
 
-.logo:hover {
-  opacity: 0.9;
+.logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
 }
 
-.logoIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* =========================================================
+   BOTÓN DE MENÚ
+   ========================================================= */
 
-.logoText {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.logoTitle {
-  color: white;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.logoSubtitle {
-  color: white;
-  font-size: 1.25rem;
-  font-weight: 400;
-}
-
-/* Menu Button */
 .menuButton {
   background: white;
   border: none;
@@ -61,7 +51,6 @@
   flex-direction: column;
   gap: 0.25rem;
   transition: background-color 0.2s;
-  position: relative;
   z-index: 1001;
 }
 
@@ -77,7 +66,10 @@
   transition: all 0.2s;
 }
 
-/* Overlay */
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
 .overlay {
   position: fixed;
   top: 0;
@@ -90,15 +82,14 @@
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-/* Dropdown Menu */
+/* =========================================================
+   DROPDOWN MENÚ
+   ========================================================= */
+
 .dropdown {
   position: absolute;
   top: 100%;
@@ -143,19 +134,17 @@
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* Responsive */
-@media (max-width: 640px) {
-  .header {
-    padding: 0.75rem 1rem;
-  }
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
+@media (max-width: 640px) {
   .dropdown {
     right: 1rem;
     min-width: 200px;
   }
 
-  .logoTitle,
-  .logoSubtitle {
-    font-size: 1.125rem;
+  .logo-img {
+    height: 52px;
   }
 }

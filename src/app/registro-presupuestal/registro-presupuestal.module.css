@@ -1,0 +1,317 @@
+.pageWrapper {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.mainContainer {
+  padding: 2rem;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #1f2937;
+}
+
+/* Layout Grid */
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 3rem;
+}
+
+/* Sección Izquierda */
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Presupuesto y Período */
+.presupuestoSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.presupuestoGroup,
+.periodoGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.presupuestoInput {
+  background: #14b8a6;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+}
+
+.presupuestoInput:focus {
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.3);
+}
+
+/* Botones de Período */
+.periodoBotones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 1rem;
+}
+
+.periodoBoton {
+  background: #14b8a6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.periodoBoton:hover {
+  background: #0d9488;
+  transform: translateY(-1px);
+}
+
+.periodoActivo {
+  background: #0d9488;
+  box-shadow: 0 4px 8px rgba(20, 184, 166, 0.3);
+}
+
+/* Tabla de Categorías */
+.tablaContainer {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla th {
+  text-align: left;
+  padding: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  border-bottom: 2px solid #14b8a6;
+}
+
+.tabla td {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tabla tr:last-child td {
+  border-bottom: none;
+}
+
+.inputCategoria,
+.inputCantidad {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.inputCategoria:focus,
+.inputCantidad:focus {
+  outline: none;
+  border-color: #14b8a6;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+}
+
+.porcentajeCell {
+  font-weight: 600;
+  color: #14b8a6;
+}
+
+.botonEliminar {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.botonEliminar:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+.agregarCategoria {
+  background: transparent;
+  color: #14b8a6;
+  border: 2px dashed #14b8a6;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  transition: all 0.2s;
+  width: fit-content;
+}
+
+.agregarCategoria:hover {
+  background: rgba(20, 184, 166, 0.1);
+  border-style: solid;
+}
+
+/* Resumen de Ahorro */
+.resumenAhorro {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.resumenAhorro p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1f2937;
+  margin: 0;
+}
+
+.resumenAhorro strong {
+  color: #14b8a6;
+  font-weight: 700;
+}
+
+/* Sección Derecha - Gráfico */
+.rightSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.graficoContainer {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 2rem;
+}
+
+/* Leyenda */
+.leyenda {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.leyendaItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.leyendaItem:hover {
+  background: #f3f4f6;
+  transform: translateX(5px);
+}
+
+.colorIndicador {
+  width: 40px;
+  height: 8px;
+  border-radius: 4px;
+}
+
+.leyendaPorcentaje {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #1f2937;
+  min-width: 45px;
+}
+
+.leyendaNombre {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .layoutGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .graficoContainer {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContainer {
+    padding: 1rem;
+  }
+
+  .presupuestoSection {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .tabla {
+    font-size: 0.875rem;
+  }
+
+  .tabla th,
+  .tabla td {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .tabla {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .resumenAhorro p {
+    font-size: 0.9rem;
+  }
+}
