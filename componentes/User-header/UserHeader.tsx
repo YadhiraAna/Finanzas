@@ -17,7 +17,7 @@ export function Header({ menuItems }: { menuItems?: MenuItem[] }) {
     { label: 'Registro de Gastos', href: '/registro-gastos' },
     { label: 'Registro Ingreso extra', href: '/registro-ingreso' },
     { label: 'Reportes', href: '/reportes' },
-    { label: 'Agregar Comentario', href: '/agregar-comentario' },
+    { label: 'Agregar Comentario', href: '/comentario' },
     { label: 'Regresar', href: '/' },
   ];
 
