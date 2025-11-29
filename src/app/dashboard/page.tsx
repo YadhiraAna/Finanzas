@@ -1,125 +1,132 @@
 import Link from "next/link";
 import { getServerUser } from "@/lib/auth-server";
-import Header from "@/componentes/Header";
+import { Users, FolderOpen, FileText, Activity } from 'lucide-react';
 import RecentUsers from "./RecentUsers";
+import { StatCard } from "@/componentes/StatCard";
+import { QuickActions } from "@/componentes/QuickActions";
+import styles from './dashboard.module.css';
 
 export const runtime = "nodejs";
 
 export default async function DashboardPage() {
   const user = await getServerUser();
 
+  const stats = [
+    {
+      icon: <Users className="w-6 h-6" />,
+      title: "Usuarios",
+      value: "",
+      subtitle: ""
+    },
+    {
+      icon: <FolderOpen className="w-6 h-6" />,
+      title: "Categorías",
+      value: "",
+      subtitle: ""
+    },
+    {
+      icon: <FileText className="w-6 h-6" />,
+      title: "Publicaciones",
+      value: "",
+      subtitle: "Número de entradas (mock)."
+    }
+  ];
+
+  const quickActions = [
+    {
+      href: '/dashboard/users',
+      icon: <Users className="w-5 h-5" />,
+      label: 'Ver usuarios',
+    },
+    {
+      href: '/dashboard/categories',
+      icon: <FolderOpen className="w-5 h-5" />,
+      label: 'Administrar categorías',
+    },
+    {
+      href: '/dashboard/activity',
+      icon: <FileText className="w-5 h-5" />,
+      label: 'Ver actividad reciente',
+    },
+  ];
+
   return (
     <>
-    {/*<Header variant="dashboard" />*/}
+      {/* Header */}
+      <header className={styles.header}>
+        <div className={styles.headerContainer}>
+          <h1 className={styles.headerTitle}>Panel de administración</h1>
+          <button className={styles.menuButton}>Menu</button>
+        </div>
+      </header>
 
-      <main className="mx-auto max-w-6xl px-4 py-10 space-y-8">
-        <section className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <p className="text-sm text-slate-400">Panel de administración</p>
-            <h1 className="text-3xl font-bold text-white">
+      <main className={styles.main}>
+        <div className={styles.container}>
+          {/* Welcome Message */}
+          <section className={styles.welcomeSection}>
+            <p className={styles.welcomeText}>
               {user ? (
                 <>
                   Hola,{" "}
-                  <span className="text-emerald-400">
+                  <span className={styles.userName}>
                     {user.displayName ?? user.email ?? user.uid}
                   </span>
                 </>
               ) : (
-                "Dashboard"
+                "Hola"
               )}
-            </h1>
-            <p className="mt-2 text-sm text-slate-400">
-              Desde aquí puedes revisar usuarios, categorías y contenido de la
-              clase.
             </p>
-          </div>
+            <p className={styles.description}>
+              Desde aquí puedes revisar usuarios, categorías y contenido de la clase.
+            </p>
+          </section>
 
+          {/* Session Info */}
           {user && (
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/70 px-4 py-3 text-sm text-slate-200">
-              <p className="font-semibold">Sesión activa</p>
-              <p className="text-slate-400 break-all">
-                {user.email ?? user.uid}
-              </p>
-            </div>
+            <section className={styles.sessionSection}>
+              <div className={styles.sessionCard}>
+                <p className={styles.sessionLabel}>Sesión activa</p>
+                <p className={styles.sessionEmail}>
+                  {user.email ?? user.uid}
+                </p>
+              </div>
+            </section>
           )}
-        </section>
 
-        <section className="grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-            <p className="text-xs uppercase tracking-wide text-slate-400">
-              Usuarios
-            </p>
-            <p className="mt-2 text-3xl font-semibold text-white">24</p>
-            <p className="mt-1 text-xs text-emerald-400">+3 hoy (ejemplo)</p>
-          </div>
+          {/* Stats Grid */}
+          <section className={styles.statsGrid}>
+            {stats.map((stat, index) => (
+              <StatCard
+                key={index}
+                icon={stat.icon}
+                title={stat.title}
+                value={stat.value}
+                subtitle={stat.subtitle}
+              />
+            ))}
+          </section>
 
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-            <p className="text-xs uppercase tracking-wide text-slate-400">
-              Categorías
-            </p>
-            <p className="mt-2 text-3xl font-semibold text-white">5</p>
-            <p className="mt-1 text-xs text-slate-400">
-              Noticias, Blog, Tareas…
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-            <p className="text-xs uppercase tracking-wide text-slate-400">
-              Publicaciones
-            </p>
-            <p className="mt-2 text-3xl font-semibold text-white">18</p>
-            <p className="mt-1 text-xs text-slate-400">
-              Número de entradas (mock).
-            </p>
-          </div>
-        </section>
-
-        <section className="grid gap-6 lg:grid-cols-[2fr,1fr]">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold text-white">
-                Usuarios recientes
-              </h2>
+          {/* Recent Users and Quick Actions */}
+          <section className={styles.contentGrid}>
+            {/* Usuarios recientes */}
+            <div className={styles.card}>
+              <h2 className={styles.cardTitle}>Usuarios recientes</h2>
+              <RecentUsers />
             </div>
 
-            <RecentUsers />
-          </div>
-
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 space-y-4">
-            <h2 className="text-lg font-semibold text-white">
-              Acciones rápidas
-            </h2>
-            <p className="text-sm text-slate-400">
-              Atajos para lo que usarás más en clase.
-            </p>
-            <div className="space-y-2">
-              <Link
-                href="/dashboard/users"
-                className="block w-full rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold text-sm px-4 py-2 text-left"
-              >
-                + Ver usuarios
-              </Link>
-              <Link
-                href="/dashboard/categories"
-                className="block w-full rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm px-4 py-2 text-left"
-              >
-                Administrar categorías
-              </Link>
-              <Link
-                href="/dashboard/activity"
-                className="block w-full rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 text-sm px-4 py-2 text-left"
-              >
-                Ver actividad reciente
-              </Link>
+            {/* Acciones rápidas */}
+            <div className={styles.card}>
+              <QuickActions actions={quickActions} />
             </div>
-          </div>
-        </section>
+          </section>
 
-        {!user && (
-          <p className="text-sm text-red-300">
-            No hay sesión válida. Verifica el middleware o la cookie de sesión.
-          </p>
-        )}
+          {/* Error message */}
+          {!user && (
+            <p className={styles.noSessionError}>
+              No hay sesión válida. Verifica el middleware o la cookie de sesión.
+            </p>
+          )}
+        </div>
       </main>
     </>
   );

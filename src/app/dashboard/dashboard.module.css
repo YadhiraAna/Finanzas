@@ -1,0 +1,346 @@
+/* Header */
+.header {
+  background: linear-gradient(to right, #2dd4bf, #14b8a6);
+  padding: 1rem 1.5rem;
+}
+
+.headerContainer {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerTitle {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.menuButton {
+  background: white;
+  color: #14b8a6;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.menuButton:hover {
+  background: #f9fafb;
+}
+
+/* Main */
+.main {
+  min-height: 100vh;
+  background: white;
+}
+
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+/* Welcome Section */
+.welcomeSection {
+  margin-bottom: 1.5rem;
+}
+
+.welcomeText {
+  color: #374151;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.userName {
+  font-weight: 500;
+}
+
+.description {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Session Info */
+.sessionSection {
+  margin-bottom: 1.5rem;
+}
+
+.sessionCard {
+  background: #f0fdfa;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: inline-block;
+  border: 1px solid #ccfbf1;
+}
+
+.sessionLabel {
+  color: #6b7280;
+  margin: 0 0 0.25rem 0;
+  font-size: 0.875rem;
+}
+
+.sessionEmail {
+  color: #111827;
+  font-weight: 500;
+  margin: 0;
+  word-break: break-all;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.statCard {
+  background: #f0fdfa;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  border: 1px solid #ccfbf1;
+  transition: box-shadow 0.2s;
+}
+
+.statCard:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.statIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.statIcon {
+  padding: 0.625rem;
+  border-radius: 0.75rem;
+  background: #2dd4bf;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.statTitle {
+  color: #374151;
+  margin: 0 0 0.25rem 0;
+  font-size: 0.875rem;
+}
+
+.statValue {
+  color: #111827;
+  margin: 0 0 0.25rem 0;
+  font-size: 1.875rem;
+  font-weight: 600;
+}
+
+.statSubtitle {
+  color: #6b7280;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* Recent Users and Quick Actions Grid */
+.contentGrid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  padding: 1.25rem;
+}
+
+.cardTitle {
+  color: #111827;
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* Recent Users */
+.usersList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.userCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #f0fdfa;
+  border-radius: 1rem;
+  border: 1px solid #ccfbf1;
+  transition: box-shadow 0.2s;
+}
+
+.userCard:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userAvatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background: linear-gradient(to bottom right, #2dd4bf, #14b8a6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.userAvatarIcon {
+  color: white;
+}
+
+.userNameText {
+  color: #111827;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+}
+
+.userEmail {
+  color: #6b7280;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.userDate {
+  color: #6b7280;
+  text-align: right;
+  font-size: 0.875rem;
+}
+
+.viewAllLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #14b8a6;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: color 0.2s;
+}
+
+.viewAllLink:hover {
+  color: #0d9488;
+}
+
+/* Quick Actions */
+.quickActionsDescription {
+  color: #6b7280;
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+}
+
+.actionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.actionButton {
+  background: #2dd4bf;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.actionButton:hover {
+  background: #14b8a6;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading and Error States */
+.loadingCard,
+.errorCard,
+.emptyCard {
+  padding: 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid;
+}
+
+.loadingCard {
+  background: #f0fdfa;
+  border-color: #ccfbf1;
+}
+
+.loadingText {
+  color: #6b7280;
+  margin: 0;
+}
+
+.errorCard {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.errorText {
+  color: #dc2626;
+  margin: 0;
+}
+
+.emptyCard {
+  background: #f0fdfa;
+  border-color: #ccfbf1;
+}
+
+.emptyText {
+  color: #6b7280;
+  margin: 0;
+}
+
+.noSessionError {
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 1rem;
+  padding: 1rem;
+}
