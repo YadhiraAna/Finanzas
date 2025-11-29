@@ -77,7 +77,7 @@ export default async function DashboardPage() {
               )}
             </p>
             <p className={styles.description}>
-              Desde aquí puedes revisar usuarios, categorías y contenido de la clase.
+              Desde aquí puedes revisar usuarios, categorías
             </p>
           </section>
 

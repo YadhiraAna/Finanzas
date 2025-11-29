@@ -24,7 +24,7 @@ export function QuickActions({ actions }: QuickActionsProps) {
     <div>
       <h2 className={styles.cardTitle}>Acciones rápidas</h2>
       <p className={styles.quickActionsDescription}>
-        Atajos para lo que usarás más en clase.
+        Atajos 
       </p>
       
       <div className={styles.actionsList}>
