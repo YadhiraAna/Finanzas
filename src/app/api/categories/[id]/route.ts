@@ -6,17 +6,20 @@ import {
   CategoryInput,
 } from "@/lib/admin-categories";
 
+type Context = {
+  params: {
+    id: string;
+  };
+};
+
 // PUT /api/categories/[id]
-export async function PUT(
-  req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function PUT(req: NextRequest, context: Context) {
   const user = await getServerUser();
   if (!user) {
     return NextResponse.json({ error: "No autorizado" }, { status: 401 });
   }
 
-  const id = params.id;
+  const { id } = context.params;
 
   try {
     const body = (await req.json()) as Partial<CategoryInput>;
@@ -46,16 +49,13 @@ export async function PUT(
 }
 
 // DELETE /api/categories/[id]
-export async function DELETE(
-  _req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function DELETE(_req: NextRequest, context: Context) {
   const user = await getServerUser();
   if (!user) {
     return NextResponse.json({ error: "No autorizado" }, { status: 401 });
   }
 
-  const id = params.id;
+  const { id } = context.params;
 
   try {
     await deleteCategory(id);
