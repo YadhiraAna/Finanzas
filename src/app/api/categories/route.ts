@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getServerUser } from "@/lib/auth-server";
 import {
   listCategories,
@@ -6,12 +6,13 @@ import {
   CategoryInput,
 } from "@/lib/admin-categories";
 
+// GET /api/categories
 export async function GET() {
   try {
     const categories = await listCategories();
     return NextResponse.json({ categories });
-  } catch (e) {
-    console.error("Error listando categorías:", e);
+  } catch (error) {
+    console.error("Error listando categorías:", error);
     return NextResponse.json(
       { error: "Error al obtener categorías" },
       { status: 500 }
@@ -19,7 +20,8 @@ export async function GET() {
   }
 }
 
-export async function POST(req: Request) {
+// POST /api/categories
+export async function POST(req: NextRequest) {
   const user = await getServerUser();
   if (!user) {
     return NextResponse.json({ error: "No autorizado" }, { status: 401 });
@@ -27,6 +29,7 @@ export async function POST(req: Request) {
 
   try {
     const body = (await req.json()) as Partial<CategoryInput>;
+
     if (!body.name) {
       return NextResponse.json(
         { error: "El nombre es obligatorio" },
@@ -42,8 +45,8 @@ export async function POST(req: Request) {
 
     const category = await createCategory(input);
     return NextResponse.json({ category }, { status: 201 });
-  } catch (e) {
-    console.error("Error creando categoría:", e);
+  } catch (error) {
+    console.error("Error creando categoría:", error);
     return NextResponse.json(
       { error: "Error al crear categoría" },
       { status: 500 }
