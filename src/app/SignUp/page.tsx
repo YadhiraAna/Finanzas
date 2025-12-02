@@ -137,7 +137,7 @@ export default function SignUpPage() {
         </div>
       </section>
 
-      <footer className="signup-footer">Hecho con 💚 · © 2025 Pesito a Pesito</footer>
+      <footer className="signup-footer">2025 Pesito a Pesito</footer>
     </>
   );
 }

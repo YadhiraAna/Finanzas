@@ -12,10 +12,10 @@ export default function ReportesPage() {
 
   // Datos de Ingresos
   const datosIngresos = [
-    { fuente: 'Transporte', monto: '$100', fecha: '17/09/2025', descripcion: 'Dinero obtenido por vender ropa.', tipo: 'Tarjeta' },
-    { fuente: 'Alimento', monto: '$200', fecha: '25/09/2025', descripcion: 'Reembolso de compra cancelada', tipo: 'Efectivo' },
-    { fuente: 'Alquiler', monto: '$200', fecha: '30/09/2025', descripcion: 'Ingreso por cuidar niños el fin de semana', tipo: 'Cheque' },
-    { fuente: 'Croquetas', monto: '$498', fecha: '01/10/2025', descripcion: 'Ingreso por vender postres caseros', tipo: 'Tarjeta' },
+    { fuente: 'Deposito por cuidar perros', monto: '$100', fecha: '17/09/2025', descripcion: 'Dinero obtenido por vender ropa.', tipo: 'Tarjeta' },
+    { fuente: 'Deuda de Yahir', monto: '$200', fecha: '25/09/2025', descripcion: 'Reembolso de compra cancelada', tipo: 'Efectivo' },
+    { fuente: 'Quincena', monto: '$200', fecha: '30/09/2025', descripcion: 'Ingreso por cuidar niños el fin de semana', tipo: 'Cheque' },
+    { fuente: 'Pago de venta de dulces', monto: '$498', fecha: '01/10/2025', descripcion: 'Ingreso por vender postres caseros', tipo: 'Tarjeta' },
   ];
 
   // Datos de Gastos
